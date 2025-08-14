@@ -1,0 +1,126 @@
+﻿@model OtoServisSatis.Entities.Vehicle
+
+@{
+    ViewData["Title"] = "Araç Düzenle";
+}
+
+<h1>Araç Düzenle</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="Photo1" />
+            <input type="hidden" asp-for="Photo2" />
+            <input type="hidden" asp-for="Photo3" />
+
+            <div class="form-group">
+                <label asp-for="MakeId" class="control-label"></label>
+                <select asp-for="MakeId" class="form-select" asp-items="ViewBag.MakeId"></select>
+                <span asp-validation-for="MakeId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Colour" class="control-label"></label>
+                <input asp-for="Colour" class="form-control" />
+                <span asp-validation-for="Colour" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Model" class="control-label"></label>
+                <input asp-for="Model" class="form-control" />
+                <span asp-validation-for="Model" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="BodyType" class="control-label"></label>
+                <input asp-for="BodyType" class="form-control" />
+                <span asp-validation-for="BodyType" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ModelYear" class="control-label"></label>
+                <input asp-for="ModelYear" class="form-control" />
+                <span asp-validation-for="ModelYear" class="text-danger"></span>
+            </div>
+
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsSale" /> @Html.DisplayNameFor(model => model.IsSale)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="HomePage" /> @Html.DisplayNameFor(model => model.HomePage)
+                </label>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Notes" class="control-label"></label>
+                <input asp-for="Notes" class="form-control" />
+                <span asp-validation-for="Notes" class="text-danger"></span>
+            </div>
+
+            @* --- FOTOĞRAF 1 --- *@
+            @if (!string.IsNullOrEmpty(Model.Photo1))
+            {
+                <div class="mb-2">
+                    <img src="~/Img/Vehicles/@Model.Photo1" alt="Photo1" width="200" class="img-thumbnail" />
+                    <p>Mevcut Fotoğraf 1</p>
+                </div>
+            }
+            <div class="form-group">
+                <label asp-for="Photo1" class="control-label"></label>
+                <input asp-for="Photo1" class="form-control" type="file" />
+                <small class="text-muted">Yeni fotoğraf yüklersen mevcut fotoğraf silinir.</small>
+                <span asp-validation-for="Photo1" class="text-danger"></span>
+            </div>
+
+            @* --- FOTOĞRAF 2 --- *@
+            @if (!string.IsNullOrEmpty(Model.Photo2))
+            {
+                <div class="mb-2">
+                    <img src="~/Img/Vehicles/@Model.Photo2" alt="Photo2" width="200" class="img-thumbnail" />
+                    <p>Mevcut Fotoğraf 2</p>
+                </div>
+            }
+            <div class="form-group">
+                <label asp-for="Photo2" class="control-label"></label>
+                <input asp-for="Photo2" class="form-control" type="file" />
+                <small class="text-muted">Yeni fotoğraf yüklersen mevcut fotoğraf silinir.</small>
+                <span asp-validation-for="Photo2" class="text-danger"></span>
+            </div>
+
+            @* --- FOTOĞRAF 3 --- *@
+            @if (!string.IsNullOrEmpty(Model.Photo3))
+            {
+                <div class="mb-2">
+                    <img src="~/Img/Vehicles/@Model.Photo3" alt="Photo3" width="200" class="img-thumbnail" />
+                    <p>Mevcut Fotoğraf 3</p>
+                </div>
+            }
+            <div class="form-group">
+                <label asp-for="Photo3" class="control-label"></label>
+                <input asp-for="Photo3" class="form-control" type="file" />
+                <small class="text-muted">Yeni fotoğraf yüklersen mevcut fotoğraf silinir.</small>
+                <span asp-validation-for="Photo3" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mt-3">
+                <input type="submit" value="Kaydet" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Geri Dön</a>
+</div>

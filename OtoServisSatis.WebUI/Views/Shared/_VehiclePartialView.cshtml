@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Vehicle>
+
+<style>
+    .favorite-btn {
+        position: absolute;
+        top: 0.5rem;
+        right: 0.5rem;
+        z-index: 10;
+        background-color: transparent;
+        border: none;
+        padding: 6px;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+        .favorite-btn i {
+            color: gray;
+            font-size: 1.3rem;
+            transition: color 0.3s ease, transform 0.2s;
+        }
+
+        .favorite-btn:hover i {
+            color: red;
+            transform: scale(1.2);
+        }
+
+    .vehicle-card-link {
+        text-decoration: none;
+        color: inherit;
+    }
+
+        .vehicle-card-link:hover {
+            text-decoration: none;
+        }
+</style>
+
+@foreach (var item in Model)
+{
+    <div class="col mb-5">
+        <div class="card h-100 position-relative">
+
+            <!-- Favorite button -->
+            <form action="/Favorites/Add" method="post">
+                <input type="hidden" name="VehicleId" value="@item.Id" />
+                <button class="favorite-btn" type="submit" title="Favorilere Ekle">
+                    <i class="bi bi-heart-fill"></i>
+                </button>
+            </form>
+
+            <!-- Entire card clickable -->
+            <a href="/Vehicles/Index/@item.Id" class="vehicle-card-link">
+                <!-- Product image -->
+                <img class="card-img-top" src="/Img/Vehicles/@item.Photo1" alt="Araç Resmi">
+
+                <!-- Product details -->
+                <div class="card-body p-4">
+                    <div class="text-center">
+                        <h5 class="fw-bolder">@item.Make?.Name @item.Model @item.BodyType</h5>
+                        @item.Price ₺
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+}

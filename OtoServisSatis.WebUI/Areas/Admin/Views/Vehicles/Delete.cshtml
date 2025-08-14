@@ -1,0 +1,97 @@
+﻿@model OtoServisSatis.Entities.Vehicle
+
+@{
+    ViewData["Title"] = "Araç Sil";
+}
+
+<h1>Araç Sil</h1>
+
+<h3>Silmek İstediğine Emin Misin ?</h3>
+<div>
+
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Colour)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Colour)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+        <dd class = "col-sm-10">
+            @Model.Price.ToString("c")
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Model)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Model)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.BodyType)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.BodyType)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ModelYear)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ModelYear)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IsSale)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IsSale)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Notes)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Notes)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Make)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Make.Name)
+        </dd>
+        <dd class="col-sm-10">
+            @if (!string.IsNullOrEmpty(Model.Photo1))
+            {
+                <div class="mb-2">
+                    <img src="~/Img/Vehicles/@Model.Photo1" alt="Photo1" width="200" class="img-thumbnail" />
+                    <p>Mevcut Fotoğraf 1</p>
+                </div>
+            }
+        </dd>
+        <dd class="col-sm-10">
+            @if (!string.IsNullOrEmpty(Model.Photo2))
+            {
+                <div class="mb-2">
+                    <img src="~/Img/Vehicles/@Model.Photo2" alt="Photo2" width="200" class="img-thumbnail" />
+                    <p>Mevcut Fotoğraf 2</p>
+                </div>
+            }
+        </dd>
+
+        <dd class="col-sm-10">
+            @if (!string.IsNullOrEmpty(Model.Photo3))
+            {
+                <div class="mb-2">
+                    <img src="~/Img/Vehicles/@Model.Photo3" alt="Photo1" width="200" class="img-thumbnail" />
+                    <p>Mevcut Fotoğraf 3</p>
+                </div>
+            }
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Sil" class="btn btn-danger" /> |
+        <a asp-action="Index">Geri Dön</a>
+    </form>
+</div>

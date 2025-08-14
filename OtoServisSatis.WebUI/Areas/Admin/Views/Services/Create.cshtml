@@ -1,0 +1,84 @@
+﻿@model OtoServisSatis.Entities.Service
+
+@{
+    ViewData["Title"] = "Servis Kaydı Ekle";
+}
+
+<h1>Servis Kaydı Ekle</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ServiceEntryDate" class="control-label"></label>
+                <input asp-for="ServiceEntryDate" class="form-control" />
+                <span asp-validation-for="ServiceEntryDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ServiceExitDate" class="control-label"></label>
+                <input asp-for="ServiceExitDate" class="form-control" />
+                <span asp-validation-for="ServiceExitDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VehicleIssue" class="control-label"></label>
+                <input asp-for="VehicleIssue" class="form-control" />
+                <span asp-validation-for="VehicleIssue" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ServiceCost" class="control-label"></label>
+                <input asp-for="ServiceCost" class="form-control" />
+                <span asp-validation-for="ServiceCost" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PerformedOperations" class="control-label"></label>
+                <input asp-for="PerformedOperations" class="form-control" />
+                <span asp-validation-for="PerformedOperations" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsUnderWarranty" /> @Html.DisplayNameFor(model => model.IsUnderWarranty)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="LicensePlate" class="control-label"></label>
+                <input asp-for="LicensePlate" class="form-control" />
+                <span asp-validation-for="LicensePlate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Make" class="control-label"></label>
+                <input asp-for="Make" class="form-control" />
+                <span asp-validation-for="Make" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Model" class="control-label"></label>
+                <input asp-for="Model" class="form-control" />
+                <span asp-validation-for="Model" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BodyType" class="control-label"></label>
+                <input asp-for="BodyType" class="form-control" />
+                <span asp-validation-for="BodyType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ChassisNumber" class="control-label"></label>
+                <input asp-for="ChassisNumber" class="form-control" />
+                <span asp-validation-for="ChassisNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Notes" class="control-label"></label>
+                <input asp-for="Notes" class="form-control" />
+                <span asp-validation-for="Notes" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Ekle" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Geri Dön</a>
+</div>
+
